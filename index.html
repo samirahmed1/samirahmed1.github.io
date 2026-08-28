@@ -1,489 +1,3 @@
-which res is bets?
-
-Today 9:52 PM
-how safe is this? and why they put there company in my app ads .txt?
-
-all good?
-
-so i should use this?
-
-No — do not use the Custom domain box unless you actually own a domain such as 4sgamz.com.
-
-For your setup, leave that field empty.
-
-Your free GitHub Pages domain is already:
-
-https://samirahmed1.github.io
-
-What you need to fix is the repository name, not the custom domain.
-
-Your repository should be named exactly:
-
-samirahmed1.github.io
-
-Then your files should be:
-
-samirahmed1.github.io/
-├── index.html
-├── app-ads.txt
-└── images/
-
-After GitHub Pages deploys it, these should work:
-
-Website:
-https://samirahmed1.github.io
-
-App ads:
-https://samirahmed1.github.io/app-ads.txt
-
-And in Google Play Console, use:
-
-https://samirahmed1.github.io
-
-as the Developer website.
-
-So: Custom domain = leave empty. ✅
-
-alhamdulillah now all good?  
-
-Alhamdulillah — yes, this looks correct now. ✅
-
-Your file is at the correct root location:
-
-https://samirahmed1.github.io/app-ads.txt
-
-And the line is correctly formatted:
-
-google.com, pub-5241595272820501, DIRECT, f08c47fec0942fa0
-
-Just make sure pub-5241595272820501 exactly matches your AdMob Publisher ID.
-
-Now use this as the Developer website for your Google Play apps:
-
-https://samirahmed1.github.io
-
-Do not put /app-ads.txt in the Play Console website field.
-
-After that, give Google/AdMob some time to crawl and verify it. You can use the same developer website and app-ads.txt for all your apps using this same AdMob account. ✅
-
-ok, so this is current code <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>4SGamz | Games</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: #08090c;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            min-height: 100vh;
-        }
-
-        header {
-            max-width: 1100px;
-            margin: auto;
-            padding: 70px 24px 45px;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 46px;
-            font-weight: 800;
-            letter-spacing: -2px;
-        }
-
-        .logo span {
-            color: #8c74ff;
-        }
-
-        header p {
-            color: #a7a7b3;
-            margin-top: 14px;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .games {
-            max-width: 1100px;
-            margin: auto;
-            padding: 10px 24px 80px;
-
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 22px;
-        }
-
-        .game-card {
-            background: #111318;
-            border: 1px solid #242730;
-            border-radius: 22px;
-            padding: 22px;
-
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease,
-                background 0.2s ease;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            border-color: #4d466f;
-            background: #15171d;
-        }
-
-        .game-top {
-            display: flex;
-            align-items: center;
-            gap: 17px;
-        }
-
-        .game-icon {
-            width: 82px;
-            height: 82px;
-
-            object-fit: cover;
-
-            border-radius: 20px;
-            background: #1b1d24;
-        }
-
-        .game-title {
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 1.25;
-        }
-
-        .game-type {
-            color: #9186da;
-            font-size: 14px;
-            margin-top: 7px;
-        }
-
-        .description {
-            color: #a9abb5;
-            line-height: 1.65;
-            margin: 20px 0;
-            font-size: 15px;
-        }
-
-        .play-button {
-            display: inline-block;
-
-            background: #ffffff;
-            color: #08090c;
-
-            text-decoration: none;
-            font-weight: 700;
-
-            padding: 11px 17px;
-            border-radius: 11px;
-
-            transition: opacity 0.2s ease;
-        }
-
-        .play-button:hover {
-            opacity: 0.82;
-        }
-
-        footer {
-            border-top: 1px solid #1d1f25;
-            padding: 30px 20px 45px;
-
-            color: #777a84;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        @media (max-width: 600px) {
-            header {
-                padding-top: 50px;
-            }
-
-            .logo {
-                font-size: 38px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <div class="logo">4S<span>Gamz</span></div>
-
-    <p>
-        Independent games made with care.<br>
-        Explore our games available on Android.
-    </p>
-</header>
-
-
-<main class="games">
-
-    <!-- PEEL -->
-    <div class="game-card">
-
-        <div class="game-top">
-
-            <img
-                src="Images/peel.png"
-                class="game-icon"
-                alt="Peel Sticker Puzzle">
-
-            <div>
-                <div class="game-title">
-                    Peel: Sticker Puzzle
-                </div>
-
-                <div class="game-type">
-                    Puzzle • Casual
-                </div>
-            </div>
-
-        </div>
-
-        <p class="description">
-            Peel colorful overlapping stickers, discover the correct order,
-            and clear every layer in a satisfying puzzle experience.
-        </p>
-
-        <a
-            class="play-button"
-            href="#"
-            target="_blank">
-            View on Google Play
-        </a>
-
-    </div>
-
-
-    <!-- TRUCK ON FIRE -->
-    <div class="game-card">
-
-        <div class="game-top">
-
-            <img
-                src="Images/truckonfire.png"
-                class="game-icon"
-                alt="Truck On Fire 2D">
-
-            <div>
-                <div class="game-title">
-                    Truck On Fire 2D
-                </div>
-
-                <div class="game-type">
-                    Driving • Simulation
-                </div>
-            </div>
-
-        </div>
-
-        <p class="description">
-            Drive trucks, complete jobs, maintain your vehicle,
-            customize your truck and explore detailed 2D roads.
-        </p>
-
-        <a
-            class="play-button"
-            href="#"
-            target="_blank">
-            View on Google Play
-        </a>
-
-    </div>
-
-
-    <!-- THE THROW -->
-    <div class="game-card">
-
-        <div class="game-top">
-
-            <img
-                src="Images/thethrow.png"
-                class="game-icon"
-                alt="The Throw">
-
-            <div>
-                <div class="game-title">
-                    The Throw: Smash & Survive
-                </div>
-
-                <div class="game-type">
-                    Action • Arcade
-                </div>
-            </div>
-
-        </div>
-
-        <p class="description">
-            Aim, throw, smash enemies, dodge attacks and survive
-            chaotic battles filled with destruction.
-        </p>
-
-        <a
-            class="play-button"
-            href="#"
-            target="_blank">
-            View on Google Play
-        </a>
-
-    </div>
-
-
-    <!-- MINI SHOP -->
-    <div class="game-card">
-
-        <div class="game-top">
-
-            <img
-                src="Images/minishop.png"
-                class="game-icon"
-                alt="My Mini Shop Simulator">
-
-            <div>
-                <div class="game-title">
-                    My Mini Shop Simulator
-                </div>
-
-                <div class="game-type">
-                    Simulation • Management
-                </div>
-            </div>
-
-        </div>
-
-        <p class="description">
-            Build and manage your own shop, stock shelves,
-            set prices, serve customers and grow your business.
-        </p>
-
-        <a
-            class="play-button"
-            href="#"
-            target="_blank">
-            View on Google Play
-        </a>
-
-    </div>
-
-</main>
-
-
-<footer>
-    © 2026 4SGamz. All rights reserved.
-</footer>
-
-</body>
-</html>, i want you to make it advance and it should be responsive for the mobile devices and pc, add effects and display more data through this link, this is my developer page u can use thats data to display everythig right? i cant manually go and put icons, screen shot and links u should do it  https://play.google.com/store/apps/dev?id=8055560724018696111
-
-Yes — I used your actual Google Play developer page and the individual Play Store listings to populate the site with the current games, icons, screenshots, categories, download ranges, content ratings, update dates, and direct Play Store links. Your developer page currently exposes titles such as Truck On Fire, My Mini Shop Simulator, Ultimate Slicer, Shift & Drift, Reaching The Limit, Truck On Flood, Cannon And Ball, Unknown City, Safe Box, and The Throw.
-
-I made you a complete replacement index.html:
-
-You do not need to manually upload the icons or screenshots for this version. I connected the images directly to the public assets currently used by your Google Play listings.
-
-It now has:
-
-    Fully responsive design for phones, tablets and PC
-
-    Sticky/glass navigation bar
-
-    Animated hero section
-
-    Featured Truck On Fire showcase
-
-    Current Google Play icons
-
-    Current Google Play screenshots
-
-    Direct Play Store links for every game
-
-    Download counts
-
-    Content ratings
-
-    Categories
-
-    Updated dates
-
-    4.2 ★ shown for Truck On Fire where the rating is publicly available
-
-    Search box
-
-    Category filters like Simulation / Action / Arcade / Casual / Adventure
-
-    Screenshot preview popup
-
-    Hover animations
-
-    Subtle shine animation
-
-    Mobile-specific layouts
-
-    Reduced-motion support
-
-    Link to your app-ads.txt
-
-    Link to your full Google Play developer page
-
-    No frameworks or libraries required
-
-What you do now
-
-Go to your GitHub repository and open:
-
-index.html
-
-Click the pencil/edit button, delete everything currently inside, then paste the contents of the downloaded file.
-
-Or just delete your old index.html and upload the new one.
-
-Commit the change.
-
-Your site should then update at:
-
-https://samirahmed1.github.io
-
-Your existing:
-
-https://samirahmed1.github.io/app-ads.txt
-
-is completely separate, so replacing index.html will not break your app-ads.txt.
-You can remove the Images folder
-
-This new version doesn't use:
-
-src="Images/truckonfire.png"
-
-etc.
-
-Instead it uses the image assets already hosted for your Google Play listings. For example, your Truck On Fire icon and screenshots are currently served from Google's Play image CDN.
-
-So you don't have to maintain:
-
-Images/
-├── truckonfire.png
-├── minishop.png
-├── ...
-
-anymore.
-
-One limitation: GitHub Pages itself cannot reliably read your Google Play developer page live every time someone opens the website. Google Play isn't designed as a public browser-side API, and its page structure can change. So I populated this version using the current public Play information rather than making your visitor's browser scrape Google Play.
-
-That means it works normally now, but if you later change a game title, screenshot, download milestone, etc., this HTML won't automatically know.
-
-If you want, the next level would be making a GitHub Action that periodically updates your website from your Google Play listings automatically, so even that manual work can be removed.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -491,6 +5,12 @@ If you want, the next level would be making a GitHub Action that periodically up
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#08090c" />
   <meta name="description" content="4SGamz — independent Android games including Truck On Fire, My Mini Shop Simulator, The Throw and more." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="4SGamz | Indie Android Games" />
+  <meta property="og:description" content="Discover 4SGamz Android games — simulation, action, casual and arcade experiences built independently." />
+  <meta property="og:url" content="https://samirahmed1.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>4SGamz | Indie Android Games</title>
 
   <style>
@@ -1281,9 +801,490 @@ If you want, the next level would be making a GitHub Action that periodically up
         transition-duration: .01ms !important;
       }
     }
+
+    /* =========================================================
+       V2 — LIVELIER, MOBILE-FIRST POLISH
+       ========================================================= */
+
+    body {
+      isolation: isolate;
+    }
+
+    /* Lightweight animated atmosphere: transforms only = GPU friendly */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      width: clamp(220px, 30vw, 520px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      filter: blur(54px);
+      opacity: .13;
+      will-change: transform;
+      background: radial-gradient(circle, rgba(146,124,255,.92) 0%, rgba(95,141,255,.25) 54%, transparent 72%);
+      animation: drift-orb 15s ease-in-out infinite alternate;
+    }
+
+    .ambient-orb:nth-child(1) { left: -9%; top: 12%; }
+    .ambient-orb:nth-child(2) {
+      right: -10%;
+      top: 42%;
+      animation-duration: 19s;
+      animation-direction: alternate-reverse;
+      background: radial-gradient(circle, rgba(54,216,201,.58), rgba(73,104,255,.16) 52%, transparent 72%);
+    }
+    .ambient-orb:nth-child(3) {
+      left: 34%;
+      bottom: -20%;
+      width: clamp(260px, 38vw, 620px);
+      opacity: .09;
+      animation-duration: 22s;
+    }
+
+    @keyframes drift-orb {
+      from { transform: translate3d(-18px,-12px,0) scale(.96); }
+      to   { transform: translate3d(28px,30px,0) scale(1.08); }
+    }
+
+    .brand-mark {
+      position: relative;
+      overflow: hidden;
+      animation: brand-breathe 4.8s ease-in-out infinite;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.38), transparent 65%);
+      transform: translateX(-80%) rotate(16deg);
+      animation: brand-shine 5.4s ease-in-out infinite;
+    }
+
+    @keyframes brand-breathe {
+      0%,100% { box-shadow: 0 8px 28px rgba(123,92,255,.28), inset 0 1px 0 rgba(255,255,255,.32); }
+      50% { box-shadow: 0 11px 34px rgba(123,92,255,.44), inset 0 1px 0 rgba(255,255,255,.38); }
+    }
+
+    @keyframes brand-shine {
+      0%,62% { transform: translateX(-90%) rotate(16deg); }
+      82%,100% { transform: translateX(90%) rotate(16deg); }
+    }
+
+    .eyebrow::before {
+      animation: live-dot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes live-dot {
+      0%,100% { transform: scale(1); box-shadow: 0 0 0 5px rgba(126,226,173,.08); }
+      50% { transform: scale(1.14); box-shadow: 0 0 0 9px rgba(126,226,173,.035); }
+    }
+
+    .gradient-text {
+      background-size: 180% 180%;
+      animation: gradient-flow 7s ease infinite;
+    }
+
+    @keyframes gradient-flow {
+      0%,100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .featured-card {
+      animation: featured-float 7s ease-in-out infinite;
+    }
+
+    .featured-image {
+      animation: featured-pan 16s ease-in-out infinite alternate;
+      transform: scale(1.035);
+      will-change: transform;
+    }
+
+    @keyframes featured-float {
+      0%,100% { translate: 0 0; }
+      50% { translate: 0 -7px; }
+    }
+
+    @keyframes featured-pan {
+      from { transform: scale(1.035) translate3d(-.6%, 0, 0); }
+      to { transform: scale(1.075) translate3d(.8%, -.4%, 0); }
+    }
+
+    /* Make game cards feel like little living game windows */
+    .game-card {
+      --mx: 50%;
+      --my: 20%;
+      content-visibility: auto;
+      contain-intrinsic-size: 520px;
+      isolation: isolate;
+    }
+
+    .game-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: var(--card-bg);
+      background-size: cover;
+      background-position: center;
+      filter: blur(22px) saturate(1.15);
+      opacity: .15;
+      transform: scale(1.12);
+      transition: opacity .35s ease, transform .6s ease;
+    }
+
+    .game-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(420px circle at var(--mx) var(--my), rgba(154,135,255,.11), transparent 42%),
+        linear-gradient(180deg, rgba(12,14,19,.03), rgba(12,14,19,.86) 52%, rgba(12,14,19,.98));
+    }
+
+    .game-card:hover::before {
+      opacity: .24;
+      transform: scale(1.17);
+    }
+
+    .game-cover {
+      aspect-ratio: 16 / 8.25;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .game-cover > img {
+      filter: saturate(.93) contrast(1.02);
+      animation: card-pan 14s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .game-card:nth-child(2n) .game-cover > img { animation-duration: 17s; animation-direction: alternate-reverse; }
+    .game-card:nth-child(3n) .game-cover > img { animation-duration: 20s; }
+
+    @keyframes card-pan {
+      from { transform: scale(1.02) translate3d(-.5%,0,0); }
+      to   { transform: scale(1.075) translate3d(.7%,-.5%,0); }
+    }
+
+    /* Smaller centered app icon, exactly as requested */
+    .game-icon {
+      left: 50%;
+      right: auto;
+      bottom: -25px;
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      border-width: 3px;
+      transform: translateX(-50%);
+      box-shadow: 0 10px 26px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.06);
+      transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease;
+    }
+
+    .game-card:hover .game-icon {
+      transform: translateX(-50%) translateY(-4px) scale(1.055);
+      box-shadow: 0 16px 32px rgba(0,0,0,.48), 0 0 22px rgba(146,124,255,.16);
+    }
+
+    .game-body {
+      padding: 38px 18px 18px;
+    }
+
+    .game-title-row {
+      text-align: center;
+      display: block;
+    }
+
+    .rating {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(245,209,112,.07);
+      border: 1px solid rgba(245,209,112,.12);
+    }
+
+    .game-category {
+      margin-top: 6px;
+    }
+
+    .game-description {
+      text-align: center;
+    }
+
+    .status-pill {
+      box-shadow: 0 8px 20px rgba(0,0,0,.22);
+    }
+
+    /* Social presence */
+    .social-section {
+      padding: 0 0 92px;
+    }
+
+    .social-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: clamp(26px, 5vw, 48px);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(255,66,83,.10), transparent 28%),
+        radial-gradient(circle at 8% 90%, rgba(78,123,255,.13), transparent 32%),
+        rgba(14,16,22,.82);
+      box-shadow: var(--shadow);
+    }
+
+    .social-panel::after {
+      content: "";
+      position: absolute;
+      inset: -40% -10%;
+      pointer-events: none;
+      background: linear-gradient(110deg, transparent 42%, rgba(255,255,255,.035) 50%, transparent 58%);
+      transform: translateX(-60%);
+      animation: social-sweep 9s ease-in-out infinite;
+    }
+
+    @keyframes social-sweep {
+      0%,70% { transform: translateX(-60%); }
+      90%,100% { transform: translateX(60%); }
+    }
+
+    .social-head {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin-bottom: 22px;
+    }
+
+    .social-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 88px;
+      padding: 16px 17px;
+      text-decoration: none;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.075);
+      background: rgba(255,255,255,.035);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .social-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.15);
+    }
+
+    .social-icon {
+      flex: 0 0 52px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      font-weight: 900;
+      color: white;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 10px 24px rgba(0,0,0,.22);
+    }
+
+    .youtube .social-icon { background: linear-gradient(145deg,#ff4054,#d90f27); }
+    .facebook .social-icon { background: linear-gradient(145deg,#4e83ff,#2057d6); font-family: Arial,sans-serif; }
+
+    .social-name {
+      font-weight: 850;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+
+    .social-sub {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      margin-top: 3px;
+    }
+
+    .social-arrow {
+      margin-left: auto;
+      color: #8c92a1;
+      font-size: 18px;
+    }
+
+    /* Better tactile behavior on touch */
+    @media (hover: none) {
+      .game-card:active,
+      .social-card:active,
+      .btn:active {
+        transform: scale(.985);
+      }
+    }
+
+    @media (max-width: 680px) {
+      body::before {
+        opacity: .11;
+        background-size: 34px 34px;
+      }
+
+      .ambient-orb {
+        filter: blur(48px);
+        opacity: .09;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero-actions .btn {
+        min-height: 50px;
+      }
+
+      .featured-visual {
+        min-height: 305px;
+      }
+
+      .featured-card {
+        animation-duration: 8.5s;
+      }
+
+      .games-grid {
+        gap: 16px;
+      }
+
+      .game-card {
+        border-radius: 20px;
+        content-visibility: visible;
+      }
+
+      .game-cover {
+        aspect-ratio: 16 / 8.7;
+      }
+
+      .game-icon {
+        width: 54px;
+        height: 54px;
+        bottom: -23px;
+        border-radius: 15px;
+      }
+
+      .game-body {
+        padding: 35px 15px 15px;
+      }
+
+      .game-title {
+        font-size: 18px;
+      }
+
+      .game-description {
+        font-size: 13.5px;
+        line-height: 1.55;
+        margin: 12px 0 14px;
+      }
+
+      .meta-row {
+        gap: 6px;
+      }
+
+      .meta {
+        padding: 8px 7px;
+      }
+
+      .card-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-actions .btn {
+        width: 100%;
+        min-height: 44px;
+      }
+
+      .social-section {
+        padding-bottom: 68px;
+      }
+
+      .social-panel {
+        padding: 24px 16px;
+        border-radius: 22px;
+      }
+
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-card {
+        min-height: 82px;
+        padding: 14px;
+      }
+
+      .footer-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .game-cover {
+        aspect-ratio: 16 / 9.2;
+      }
+
+      .card-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .social-icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+      }
+    }
+
+    .page-hidden .featured-image,
+    .page-hidden .game-cover > img,
+    .page-hidden .featured-card,
+    .page-hidden .ambient-orb,
+    .page-hidden .brand-mark,
+    .page-hidden .brand-mark::after,
+    .page-hidden .gradient-text,
+    .page-hidden .social-panel::after {
+      animation-play-state: paused !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .featured-image,
+      .game-cover > img,
+      .featured-card,
+      .ambient-orb,
+      .brand-mark,
+      .brand-mark::after,
+      .gradient-text,
+      .eyebrow::before,
+      .social-panel::after {
+        animation: none !important;
+      }
+    }
+
   </style>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient-orb"></span>
+    <span class="ambient-orb"></span>
+    <span class="ambient-orb"></span>
+  </div>
 
   <div class="nav-wrap">
     <nav class="shell">
@@ -1295,6 +1296,7 @@ If you want, the next level would be making a GitHub Action that periodically up
       <div class="nav-links">
         <a class="nav-link" href="#games">Games</a>
         <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#follow">Follow</a>
         <a class="nav-cta" href="https://play.google.com/store/apps/dev?id=8055560724018696111" target="_blank" rel="noopener">Google Play ↗</a>
       </div>
     </nav>
@@ -1372,11 +1374,45 @@ If you want, the next level would be making a GitHub Action that periodically up
             <div class="hero-actions" style="margin-top:24px">
               <a class="btn btn-primary" href="https://play.google.com/store/apps/dev?id=8055560724018696111" target="_blank" rel="noopener">View all on Google Play ↗</a>
               <a class="btn" href="./app-ads.txt" target="_blank">app-ads.txt ↗</a>
+              <a class="btn" href="#follow">Follow 4SGamz ↓</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="social-section" id="follow">
+      <div class="shell">
+        <div class="social-panel">
+          <div class="social-head">
+            <div class="section-kicker">Follow the studio</div>
+            <h2 class="section-title">See what’s being built next.</h2>
+            <p class="section-sub">Game updates, trailers, development clips and new releases from 4SGamz.</p>
+          </div>
+
+          <div class="social-grid">
+            <a class="social-card youtube" href="https://www.youtube.com/@muslimgamedev8681" target="_blank" rel="noopener">
+              <span class="social-icon">▶</span>
+              <span>
+                <span class="social-name">YouTube</span>
+                <span class="social-sub">Trailers, gameplay and development videos</span>
+              </span>
+              <span class="social-arrow">↗</span>
+            </a>
+
+            <a class="social-card facebook" href="https://www.facebook.com/profile.php?id=100077252384856" target="_blank" rel="noopener">
+              <span class="social-icon">f</span>
+              <span>
+                <span class="social-name">Facebook</span>
+                <span class="social-sub">News, releases and community updates</span>
+              </span>
+              <span class="social-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -1384,6 +1420,8 @@ If you want, the next level would be making a GitHub Action that periodically up
       <div>© <span id="year"></span> 4SGamz. All rights reserved.</div>
       <div class="footer-links">
         <a href="https://play.google.com/store/apps/dev?id=8055560724018696111" target="_blank" rel="noopener">Google Play</a>
+        <a href="https://www.youtube.com/@muslimgamedev8681" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.facebook.com/profile.php?id=100077252384856" target="_blank" rel="noopener">Facebook</a>
         <a href="./app-ads.txt" target="_blank">app-ads.txt</a>
       </div>
     </div>
@@ -1571,6 +1609,13 @@ If you want, the next level would be making a GitHub Action that periodically up
       }
     ];
 
+    // Choose one screenshot per game for this visit so the portfolio feels fresh
+    // without re-randomizing every time the user searches or filters.
+    apps.forEach(app => {
+      const shots = Array.isArray(app.screenshots) ? app.screenshots : [];
+      app.cover = shots.length ? shots[Math.floor(Math.random() * shots.length)] : app.icon;
+    });
+
     const categories = ["All", ...new Set(apps.map(app => app.category))];
     const grid = document.getElementById("gamesGrid");
     const filters = document.getElementById("filters");
@@ -1610,11 +1655,11 @@ If you want, the next level would be making a GitHub Action that periodically up
     function cardTemplate(app, index) {
       const pre = app.status.toLowerCase().includes("pre");
       return `
-        <article class="game-card" data-index="${index}">
+        <article class="game-card" data-index="${index}" style="--card-bg:url(&quot;${app.cover || app.screenshots[0]}&quot;)">
           <div class="game-cover">
-            <img src="${app.screenshots[0]}" alt="${app.title} screenshot" loading="lazy" />
+            <img src="${app.cover || app.screenshots[0]}" alt="${app.title} screenshot" loading="lazy" decoding="async" />
             <span class="status-pill ${pre ? "pre" : ""}">${app.status}</span>
-            <img class="game-icon" src="${app.icon}" alt="${app.title} icon" loading="lazy" />
+            <img class="game-icon" src="${app.icon}" alt="${app.title} icon" loading="lazy" decoding="async" />
           </div>
 
           <div class="game-body">
@@ -1700,10 +1745,25 @@ If you want, the next level would be making a GitHub Action that periodically up
     document.getElementById("year").textContent = new Date().getFullYear();
     document.querySelectorAll("img").forEach(safeImage);
 
+
+    // Desktop-only pointer glow. Avoids constant pointer work on touch devices.
+    if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+      grid.addEventListener("pointermove", e => {
+        const card = e.target.closest(".game-card");
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+        card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      });
+    }
+
+    // Pause image motion when the tab is hidden to save battery.
+    document.addEventListener("visibilitychange", () => {
+      document.documentElement.classList.toggle("page-hidden", document.hidden);
+    });
+
     renderFilters();
     renderApps();
   </script>
 </body>
 </html>
-
-
