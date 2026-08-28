@@ -1902,47 +1902,54 @@
     document.querySelectorAll("img").forEach(safeImage);
 
 
-    // Desktop-only torch glow. Same effect, but RAF-throttled so fast mouse
-    // movement cannot trigger dozens of style updates per frame.
+    // Desktop-only torch glow.
+    // The card bounds are read inside the RAF update instead of cached.
+    // This keeps the glow perfectly aligned after page scrolling.
     if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
       let torchCard = null;
-      let torchRect = null;
       let torchX = 0;
       let torchY = 0;
       let torchFrame = 0;
 
+      const updateTorch = () => {
+        torchFrame = 0;
+        if (!torchCard) return;
+
+        // getBoundingClientRect() is viewport-relative, just like clientX/clientY.
+        // Reading it here makes it current even if the page has just been scrolled.
+        const rect = torchCard.getBoundingClientRect();
+
+        torchCard.style.setProperty("--mx", `${torchX - rect.left}px`);
+        torchCard.style.setProperty("--my", `${torchY - rect.top}px`);
+      };
+
       grid.addEventListener("pointerover", e => {
         const card = e.target.closest(".game-card");
-        if (!card || card === torchCard) return;
+        if (!card) return;
         torchCard = card;
-        torchRect = card.getBoundingClientRect();
       });
 
       grid.addEventListener("pointermove", e => {
         const card = e.target.closest(".game-card");
         if (!card) return;
 
-        if (card !== torchCard) {
-          torchCard = card;
-          torchRect = card.getBoundingClientRect();
-        }
-
+        torchCard = card;
         torchX = e.clientX;
         torchY = e.clientY;
 
-        if (torchFrame) return;
-        torchFrame = requestAnimationFrame(() => {
-          torchFrame = 0;
-          if (!torchCard || !torchRect) return;
-          torchCard.style.setProperty("--mx", `${torchX - torchRect.left}px`);
-          torchCard.style.setProperty("--my", `${torchY - torchRect.top}px`);
-        });
+        if (!torchFrame) {
+          torchFrame = requestAnimationFrame(updateTorch);
+        }
       }, { passive: true });
 
       grid.addEventListener("pointerleave", () => {
         torchCard = null;
-        torchRect = null;
       });
+
+      // Prevent a stale glow position if the user scrolls while the mouse is still.
+      window.addEventListener("scroll", () => {
+        torchCard = null;
+      }, { passive: true });
     }
 
     // Pause remaining ambient/hero motion when the tab is hidden to save battery.
