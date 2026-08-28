@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>4SGamz | Games</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #08090c;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+        }
+
+        header {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 24px 45px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 46px;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .logo span {
+            color: #8c74ff;
+        }
+
+        header p {
+            color: #a7a7b3;
+            margin-top: 14px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .games {
+            max-width: 1100px;
+            margin: auto;
+            padding: 10px 24px 80px;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .game-card {
+            background: #111318;
+            border: 1px solid #242730;
+            border-radius: 22px;
+            padding: 22px;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #4d466f;
+            background: #15171d;
+        }
+
+        .game-top {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+        }
+
+        .game-icon {
+            width: 82px;
+            height: 82px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+            background: #1b1d24;
+        }
+
+        .game-title {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .game-type {
+            color: #9186da;
+            font-size: 14px;
+            margin-top: 7px;
+        }
+
+        .description {
+            color: #a9abb5;
+            line-height: 1.65;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+
+        .play-button {
+            display: inline-block;
+
+            background: #ffffff;
+            color: #08090c;
+
+            text-decoration: none;
+            font-weight: 700;
+
+            padding: 11px 17px;
+            border-radius: 11px;
+
+            transition: opacity 0.2s ease;
+        }
+
+        .play-button:hover {
+            opacity: 0.82;
+        }
+
+        footer {
+            border-top: 1px solid #1d1f25;
+            padding: 30px 20px 45px;
+
+            color: #777a84;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding-top: 50px;
+            }
+
+            .logo {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">4S<span>Gamz</span></div>
+
+    <p>
+        Independent games made with care.<br>
+        Explore our games available on Android.
+    </p>
+</header>
+
+
+<main class="games">
+
+    <!-- PEEL -->
+    <div class="game-card">
+
+        <div class="game-top">
+
+            <img
+                src="images/peel.png"
+                class="game-icon"
+                alt="Peel Sticker Puzzle">
+
+            <div>
+                <div class="game-title">
+                    Peel: Sticker Puzzle
+                </div>
+
+                <div class="game-type">
+                    Puzzle • Casual
+                </div>
+            </div>
+
+        </div>
+
+        <p class="description">
+            Peel colorful overlapping stickers, discover the correct order,
+            and clear every layer in a satisfying puzzle experience.
+        </p>
+
+        <a
+            class="play-button"
+            href="#"
+            target="_blank">
+            View on Google Play
+        </a>
+
+    </div>
+
+
+    <!-- TRUCK ON FIRE -->
+    <div class="game-card">
+
+        <div class="game-top">
+
+            <img
+                src="images/truckonfire.png"
+                class="game-icon"
+                alt="Truck On Fire 2D">
+
+            <div>
+                <div class="game-title">
+                    Truck On Fire 2D
+                </div>
+
+                <div class="game-type">
+                    Driving • Simulation
+                </div>
+            </div>
+
+        </div>
+
+        <p class="description">
+            Drive trucks, complete jobs, maintain your vehicle,
+            customize your truck and explore detailed 2D roads.
+        </p>
+
+        <a
+            class="play-button"
+            href="#"
+            target="_blank">
+            View on Google Play
+        </a>
+
+    </div>
+
+
+    <!-- THE THROW -->
+    <div class="game-card">
+
+        <div class="game-top">
+
+            <img
+                src="images/thethrow.png"
+                class="game-icon"
+                alt="The Throw">
+
+            <div>
+                <div class="game-title">
+                    The Throw: Smash & Survive
+                </div>
+
+                <div class="game-type">
+                    Action • Arcade
+                </div>
+            </div>
+
+        </div>
+
+        <p class="description">
+            Aim, throw, smash enemies, dodge attacks and survive
+            chaotic battles filled with destruction.
+        </p>
+
+        <a
+            class="play-button"
+            href="#"
+            target="_blank">
+            View on Google Play
+        </a>
+
+    </div>
+
+
+    <!-- MINI SHOP -->
+    <div class="game-card">
+
+        <div class="game-top">
+
+            <img
+                src="images/minishop.png"
+                class="game-icon"
+                alt="My Mini Shop Simulator">
+
+            <div>
+                <div class="game-title">
+                    My Mini Shop Simulator
+                </div>
+
+                <div class="game-type">
+                    Simulation • Management
+                </div>
+            </div>
+
+        </div>
+
+        <p class="description">
+            Build and manage your own shop, stock shelves,
+            set prices, serve customers and grow your business.
+        </p>
+
+        <a
+            class="play-button"
+            href="#"
+            target="_blank">
+            View on Google Play
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer>
+    © 2026 4SGamz. All rights reserved.
+</footer>
+
+</body>
+</html>
