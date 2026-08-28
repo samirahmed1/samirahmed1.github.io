@@ -449,8 +449,10 @@
       background: var(--card);
       border: 1px solid var(--border);
       box-shadow: 0 10px 32px rgba(0,0,0,.14);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      /* Per-card backdrop blur is expensive on mobile. The layered card
+         backgrounds below preserve the same glassy depth much more cheaply. */
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       transition: transform .28s cubic-bezier(.2,.8,.2,1), border-color .28s ease, box-shadow .28s ease;
       opacity: 0;
       transform: translateY(14px);
@@ -474,10 +476,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .5s cubic-bezier(.2,.8,.2,1), filter .3s ease;
+      transform: none;
+      transition: filter .22s ease;
     }
 
-    .game-card:hover .game-cover > img { transform: scale(1.045); filter: saturate(1.08); }
+    /* Keep the image completely still; only a tiny color lift on desktop hover. */
+    .game-card:hover .game-cover > img { transform: none; filter: saturate(1.05); }
 
     .game-cover::after {
       content: "";
@@ -490,14 +494,16 @@
     .game-icon {
       position: absolute;
       z-index: 2;
-      left: 18px;
-      bottom: -30px;
-      width: 74px;
-      height: 74px;
-      border-radius: 20px;
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      width: 96px;
+      height: 96px;
+      transform: translate(-50%, -50%);
+      border-radius: 22px;
       border: 4px solid #12141a;
       background: #1a1d24;
-      object-fit: cover;
+      object-fit: contain;
       box-shadow: 0 10px 28px rgba(0,0,0,.34);
     }
 
@@ -518,7 +524,7 @@
 
     .status-pill.pre { color: #c8bfff; border-color: rgba(146,124,255,.27); }
 
-    .game-body { padding: 42px 18px 18px; }
+    .game-body { padding: 18px; }
 
     .game-title-row {
       display: flex;
@@ -785,6 +791,31 @@
       .modal-panel { max-height: calc(100vh - 20px); border-radius: 20px; }
     }
 
+    /* Mobile performance pass: preserve every feature, reduce paint cost. */
+    @media (max-width: 680px) {
+      .game-card {
+        box-shadow: 0 8px 24px rgba(0,0,0,.14);
+      }
+
+      .game-card::before {
+        opacity: .075;
+      }
+
+      .game-card::after {
+        /* Static center glow on touch devices; the desktop torch remains live. */
+        background:
+          radial-gradient(320px circle at 50% 18%, rgba(154,135,255,.075), transparent 44%),
+          linear-gradient(180deg, rgba(12,14,19,.03), rgba(12,14,19,.86) 52%, rgba(12,14,19,.98));
+      }
+
+      .status-pill,
+      .nav-wrap {
+        /* Keep glass effects only where useful; card-level blur is already gone. */
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+    }
+
     @media (max-width: 390px) {
       .hero-stats { gap: 14px; }
       .hero-stat { flex: 1 1 90px; }
@@ -824,10 +855,12 @@
       width: clamp(220px, 30vw, 520px);
       aspect-ratio: 1;
       border-radius: 50%;
-      filter: blur(54px);
+      /* The radial gradient is already soft; avoiding filter:blur saves a lot
+         of GPU work on phones while keeping the same moving atmosphere. */
+      filter: none;
       opacity: .13;
       will-change: transform;
-      background: radial-gradient(circle, rgba(146,124,255,.92) 0%, rgba(95,141,255,.25) 54%, transparent 72%);
+      background: radial-gradient(circle, rgba(146,124,255,.46) 0%, rgba(95,141,255,.16) 42%, rgba(95,141,255,.06) 58%, transparent 74%);
       animation: drift-orb 15s ease-in-out infinite alternate;
     }
 
@@ -837,7 +870,7 @@
       top: 42%;
       animation-duration: 19s;
       animation-direction: alternate-reverse;
-      background: radial-gradient(circle, rgba(54,216,201,.58), rgba(73,104,255,.16) 52%, transparent 72%);
+      background: radial-gradient(circle, rgba(54,216,201,.30) 0%, rgba(73,104,255,.11) 46%, rgba(73,104,255,.04) 60%, transparent 74%);
     }
     .ambient-orb:nth-child(3) {
       left: 34%;
@@ -933,10 +966,11 @@
       background-image: var(--card-bg);
       background-size: cover;
       background-position: center;
-      filter: blur(22px) saturate(1.15);
-      opacity: .15;
-      transform: scale(1.12);
-      transition: opacity .35s ease, transform .6s ease;
+      /* Static screenshot ambience. Avoid blur/filter layers on every card. */
+      filter: none;
+      opacity: .10;
+      transform: scale(1.025);
+      transition: opacity .25s ease;
     }
 
     .game-card::after {
@@ -951,8 +985,8 @@
     }
 
     .game-card:hover::before {
-      opacity: .24;
-      transform: scale(1.17);
+      opacity: .15;
+      transform: scale(1.025);
     }
 
     .game-cover {
@@ -961,17 +995,12 @@
     }
 
     .game-cover > img {
+      /* Intentionally static: the old continuous pan/zoom was the main source
+         of jank when many cards were visible at once. */
       filter: saturate(.93) contrast(1.02);
-      animation: card-pan 14s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-
-    .game-card:nth-child(2n) .game-cover > img { animation-duration: 17s; animation-direction: alternate-reverse; }
-    .game-card:nth-child(3n) .game-cover > img { animation-duration: 20s; }
-
-    @keyframes card-pan {
-      from { transform: scale(1.02) translate3d(-.5%,0,0); }
-      to   { transform: scale(1.075) translate3d(.7%,-.5%,0); }
+      animation: none;
+      transform: none;
+      will-change: auto;
     }
 
     /* Smaller centered app icon, exactly as requested */
@@ -1141,8 +1170,8 @@
       }
 
       .ambient-orb {
-        filter: blur(48px);
-        opacity: .09;
+        filter: none;
+        opacity: .085;
       }
 
       .hero {
@@ -1236,6 +1265,31 @@
       }
     }
 
+    /* Mobile performance pass: preserve every feature, reduce paint cost. */
+    @media (max-width: 680px) {
+      .game-card {
+        box-shadow: 0 8px 24px rgba(0,0,0,.14);
+      }
+
+      .game-card::before {
+        opacity: .075;
+      }
+
+      .game-card::after {
+        /* Static center glow on touch devices; the desktop torch remains live. */
+        background:
+          radial-gradient(320px circle at 50% 18%, rgba(154,135,255,.075), transparent 44%),
+          linear-gradient(180deg, rgba(12,14,19,.03), rgba(12,14,19,.86) 52%, rgba(12,14,19,.98));
+      }
+
+      .status-pill,
+      .nav-wrap {
+        /* Keep glass effects only where useful; card-level blur is already gone. */
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+    }
+
     @media (max-width: 390px) {
       .game-cover {
         aspect-ratio: 16 / 9.2;
@@ -1253,7 +1307,6 @@
     }
 
     .page-hidden .featured-image,
-    .page-hidden .game-cover > img,
     .page-hidden .featured-card,
     .page-hidden .ambient-orb,
     .page-hidden .brand-mark,
@@ -1265,7 +1318,6 @@
 
     @media (prefers-reduced-motion: reduce) {
       .featured-image,
-      .game-cover > img,
       .featured-card,
       .ambient-orb,
       .brand-mark,
@@ -1277,7 +1329,87 @@
       }
     }
 
-  </style>
+  
+        .contact-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 24px 90px;
+        }
+
+        .contact-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(140,116,255,.13), rgba(17,19,24,.96));
+            border: 1px solid #2d3140;
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 18px 50px rgba(0,0,0,.22);
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle, rgba(140,116,255,.14), transparent 55%);
+            pointer-events: none;
+        }
+
+        .contact-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-title {
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .contact-text {
+            color: #a9abb5;
+            max-width: 640px;
+            margin: 0 auto 22px;
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 18px;
+            border-radius: 12px;
+            background: #ffffff;
+            color: #08090c;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, opacity .2s ease;
+            word-break: break-word;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            opacity: .9;
+        }
+
+        @media (max-width: 600px) {
+            .contact-section {
+                padding: 0 16px 60px;
+            }
+
+            .contact-card {
+                padding: 24px 18px;
+                border-radius: 20px;
+            }
+
+            .contact-email {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
 <body>
   <div class="ambient" aria-hidden="true">
@@ -1319,7 +1451,7 @@
 
           <div class="hero-stats" aria-label="Studio stats">
             <div class="hero-stat"><strong>10</strong><span>Google Play titles</span></div>
-            <div class="hero-stat"><strong>50K+</strong><span>Flagship downloads</span></div>
+            <div class="hero-stat"><strong>117,505+</strong><span>Combined downloads</span></div>
             <div class="hero-stat"><strong>Android</strong><span>Primary platform</span></div>
           </div>
         </div>
@@ -1329,7 +1461,7 @@
           <a class="featured-card" href="https://play.google.com/store/apps/details?id=com.samirahmed.TruckOnFire2D" target="_blank" rel="noopener">
             <img class="featured-image" src="https://play-lh.googleusercontent.com/JZXCUXkoQ28JqF-aRlME9NOj7kb5yAwWTiDQM4frRW4QYTu2au7QHkdLvBAiMCQV_xbDhAx7bZg85lCRmpNEsw=w526-h296" alt="Truck On Fire gameplay" />
             <div class="featured-content">
-              <div class="featured-label">Featured • 50K+ downloads</div>
+              <div class="featured-label">Featured • 66K+ downloads</div>
               <h2 class="featured-title">Truck On Fire:<br>Truck Simulator</h2>
               <div class="featured-meta">Simulation • Everyone • 4.2 ★</div>
             </div>
@@ -1415,7 +1547,21 @@
 
   </main>
 
-  <footer>
+  
+<section class="contact-section" id="contact">
+    <div class="contact-card">
+        <div class="contact-title">Get in Touch</div>
+        <p class="contact-text">
+            Have feedback, found an issue, or want to contact 4SGamz about one of our games?
+            Feel free to send an email — we'd be happy to hear from you.
+        </p>
+        <a class="contact-email" href="mailto:samir.oreo1@gmail.com">
+            ✉ samir.oreo1@gmail.com
+        </a>
+    </div>
+</section>
+
+<footer>
     <div class="shell footer-row">
       <div>© <span id="year"></span> 4SGamz. All rights reserved.</div>
       <div class="footer-links">
@@ -1450,7 +1596,8 @@
       {
         title: "Truck On Fire: Truck Simulator",
         category: "Simulation",
-        downloads: "50K+",
+        displayTags: "Simulation • Driving",
+        downloads: "66K+",
         rating: "4.2 ★",
         contentRating: "Everyone",
         updated: "Jul 22, 2026",
@@ -1466,7 +1613,8 @@
       {
         title: "My Mini Shop Simulator - Game",
         category: "Simulation",
-        downloads: "1K+",
+        displayTags: "Simulation • Management",
+        downloads: "3K+",
         rating: "",
         contentRating: "Everyone",
         updated: "Aug 15, 2026",
@@ -1482,6 +1630,7 @@
       {
         title: "The Throw: Smash & Survive",
         category: "Action",
+        displayTags: "Action • Arcade",
         downloads: "Pre-register",
         rating: "",
         contentRating: "Teen",
@@ -1498,7 +1647,8 @@
       {
         title: "Truck On Flood 2D - Simulator",
         category: "Simulation",
-        downloads: "10K+",
+        displayTags: "Simulation • Driving",
+        downloads: "47K+",
         rating: "",
         contentRating: "Everyone",
         updated: "Mar 31, 2026",
@@ -1514,6 +1664,7 @@
       {
         title: "Shift & Drift - 3D Car Driving",
         category: "Simulation",
+        displayTags: "Racing • Driving",
         downloads: "1K+",
         rating: "",
         contentRating: "Everyone",
@@ -1530,7 +1681,8 @@
       {
         title: "Ultimate Slicer 3D - Slice All",
         category: "Casual",
-        downloads: "100+",
+        displayTags: "Casual • Arcade",
+        downloads: "200+",
         rating: "",
         contentRating: "Everyone",
         updated: "Apr 9, 2026",
@@ -1546,7 +1698,8 @@
       {
         title: "Reaching The Limit",
         category: "Adventure",
-        downloads: "100+",
+        displayTags: "Adventure • Platformer",
+        downloads: "150+",
         rating: "",
         contentRating: "Everyone",
         updated: "Apr 9, 2026",
@@ -1562,6 +1715,7 @@
       {
         title: "Unknown City",
         category: "Arcade",
+        displayTags: "Arcade • Action",
         downloads: "100+",
         rating: "",
         contentRating: "Everyone",
@@ -1578,6 +1732,7 @@
       {
         title: "Cannon And Ball",
         category: "Arcade",
+        displayTags: "Arcade • Casual",
         downloads: "50+",
         rating: "",
         contentRating: "Everyone",
@@ -1594,6 +1749,7 @@
       {
         title: "Safe Box",
         category: "Arcade",
+        displayTags: "Arcade • Casual",
         downloads: "5+",
         rating: "",
         contentRating: "Everyone",
@@ -1666,7 +1822,7 @@
             <div class="game-title-row">
               <div>
                 <h3 class="game-title">${app.title}</h3>
-                <div class="game-category">${app.category}</div>
+                <div class="game-category">${app.displayTags || app.category}</div>
               </div>
               ${app.rating ? `<div class="rating">${app.rating}</div>` : ""}
             </div>
@@ -1703,7 +1859,7 @@
         .map((app, index) => ({ app, index }))
         .filter(({ app }) => {
           const categoryMatch = activeCategory === "All" || app.category === activeCategory;
-          const searchMatch = !query || `${app.title} ${app.category} ${app.description}`.toLowerCase().includes(query);
+          const searchMatch = !query || `${app.title} ${app.category} ${app.displayTags || ""} ${app.description}`.toLowerCase().includes(query);
           return categoryMatch && searchMatch;
         });
 
@@ -1746,18 +1902,50 @@
     document.querySelectorAll("img").forEach(safeImage);
 
 
-    // Desktop-only pointer glow. Avoids constant pointer work on touch devices.
+    // Desktop-only torch glow. Same effect, but RAF-throttled so fast mouse
+    // movement cannot trigger dozens of style updates per frame.
     if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+      let torchCard = null;
+      let torchRect = null;
+      let torchX = 0;
+      let torchY = 0;
+      let torchFrame = 0;
+
+      grid.addEventListener("pointerover", e => {
+        const card = e.target.closest(".game-card");
+        if (!card || card === torchCard) return;
+        torchCard = card;
+        torchRect = card.getBoundingClientRect();
+      });
+
       grid.addEventListener("pointermove", e => {
         const card = e.target.closest(".game-card");
         if (!card) return;
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-        card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+
+        if (card !== torchCard) {
+          torchCard = card;
+          torchRect = card.getBoundingClientRect();
+        }
+
+        torchX = e.clientX;
+        torchY = e.clientY;
+
+        if (torchFrame) return;
+        torchFrame = requestAnimationFrame(() => {
+          torchFrame = 0;
+          if (!torchCard || !torchRect) return;
+          torchCard.style.setProperty("--mx", `${torchX - torchRect.left}px`);
+          torchCard.style.setProperty("--my", `${torchY - torchRect.top}px`);
+        });
+      }, { passive: true });
+
+      grid.addEventListener("pointerleave", () => {
+        torchCard = null;
+        torchRect = null;
       });
     }
 
-    // Pause image motion when the tab is hidden to save battery.
+    // Pause remaining ambient/hero motion when the tab is hidden to save battery.
     document.addEventListener("visibilitychange", () => {
       document.documentElement.classList.toggle("page-hidden", document.hidden);
     });
