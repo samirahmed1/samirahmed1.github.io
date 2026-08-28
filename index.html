@@ -1,4 +1,72 @@
-<!DOCTYPE html>
+which res is bets?
+
+Today 9:52 PM
+how safe is this? and why they put there company in my app ads .txt?
+
+all good?
+
+so i should use this?
+
+No — do not use the Custom domain box unless you actually own a domain such as 4sgamz.com.
+
+For your setup, leave that field empty.
+
+Your free GitHub Pages domain is already:
+
+https://samirahmed1.github.io
+
+What you need to fix is the repository name, not the custom domain.
+
+Your repository should be named exactly:
+
+samirahmed1.github.io
+
+Then your files should be:
+
+samirahmed1.github.io/
+├── index.html
+├── app-ads.txt
+└── images/
+
+After GitHub Pages deploys it, these should work:
+
+Website:
+https://samirahmed1.github.io
+
+App ads:
+https://samirahmed1.github.io/app-ads.txt
+
+And in Google Play Console, use:
+
+https://samirahmed1.github.io
+
+as the Developer website.
+
+So: Custom domain = leave empty. ✅
+
+alhamdulillah now all good?  
+
+Alhamdulillah — yes, this looks correct now. ✅
+
+Your file is at the correct root location:
+
+https://samirahmed1.github.io/app-ads.txt
+
+And the line is correctly formatted:
+
+google.com, pub-5241595272820501, DIRECT, f08c47fec0942fa0
+
+Just make sure pub-5241595272820501 exactly matches your AdMob Publisher ID.
+
+Now use this as the Developer website for your Google Play apps:
+
+https://samirahmed1.github.io
+
+Do not put /app-ads.txt in the Play Console website field.
+
+After that, give Google/AdMob some time to crawl and verify it. You can use the same developer website and app-ads.txt for all your apps using this same AdMob account. ✅
+
+ok, so this is current code <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -316,4 +384,1326 @@
 </footer>
 
 </body>
+</html>, i want you to make it advance and it should be responsive for the mobile devices and pc, add effects and display more data through this link, this is my developer page u can use thats data to display everythig right? i cant manually go and put icons, screen shot and links u should do it  https://play.google.com/store/apps/dev?id=8055560724018696111
+
+Yes — I used your actual Google Play developer page and the individual Play Store listings to populate the site with the current games, icons, screenshots, categories, download ranges, content ratings, update dates, and direct Play Store links. Your developer page currently exposes titles such as Truck On Fire, My Mini Shop Simulator, Ultimate Slicer, Shift & Drift, Reaching The Limit, Truck On Flood, Cannon And Ball, Unknown City, Safe Box, and The Throw.
+
+I made you a complete replacement index.html:
+
+You do not need to manually upload the icons or screenshots for this version. I connected the images directly to the public assets currently used by your Google Play listings.
+
+It now has:
+
+    Fully responsive design for phones, tablets and PC
+
+    Sticky/glass navigation bar
+
+    Animated hero section
+
+    Featured Truck On Fire showcase
+
+    Current Google Play icons
+
+    Current Google Play screenshots
+
+    Direct Play Store links for every game
+
+    Download counts
+
+    Content ratings
+
+    Categories
+
+    Updated dates
+
+    4.2 ★ shown for Truck On Fire where the rating is publicly available
+
+    Search box
+
+    Category filters like Simulation / Action / Arcade / Casual / Adventure
+
+    Screenshot preview popup
+
+    Hover animations
+
+    Subtle shine animation
+
+    Mobile-specific layouts
+
+    Reduced-motion support
+
+    Link to your app-ads.txt
+
+    Link to your full Google Play developer page
+
+    No frameworks or libraries required
+
+What you do now
+
+Go to your GitHub repository and open:
+
+index.html
+
+Click the pencil/edit button, delete everything currently inside, then paste the contents of the downloaded file.
+
+Or just delete your old index.html and upload the new one.
+
+Commit the change.
+
+Your site should then update at:
+
+https://samirahmed1.github.io
+
+Your existing:
+
+https://samirahmed1.github.io/app-ads.txt
+
+is completely separate, so replacing index.html will not break your app-ads.txt.
+You can remove the Images folder
+
+This new version doesn't use:
+
+src="Images/truckonfire.png"
+
+etc.
+
+Instead it uses the image assets already hosted for your Google Play listings. For example, your Truck On Fire icon and screenshots are currently served from Google's Play image CDN.
+
+So you don't have to maintain:
+
+Images/
+├── truckonfire.png
+├── minishop.png
+├── ...
+
+anymore.
+
+One limitation: GitHub Pages itself cannot reliably read your Google Play developer page live every time someone opens the website. Google Play isn't designed as a public browser-side API, and its page structure can change. So I populated this version using the current public Play information rather than making your visitor's browser scrape Google Play.
+
+That means it works normally now, but if you later change a game title, screenshot, download milestone, etc., this HTML won't automatically know.
+
+If you want, the next level would be making a GitHub Action that periodically updates your website from your Google Play listings automatically, so even that manual work can be removed.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08090c" />
+  <meta name="description" content="4SGamz — independent Android games including Truck On Fire, My Mini Shop Simulator, The Throw and more." />
+  <title>4SGamz | Indie Android Games</title>
+
+  <style>
+    :root {
+      --bg: #07080b;
+      --bg-2: #0b0d12;
+      --card: rgba(17, 19, 25, 0.82);
+      --card-solid: #111319;
+      --surface: #171a22;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-strong: rgba(159, 135, 255, 0.38);
+      --text: #f6f7fb;
+      --muted: #9da2af;
+      --muted-2: #727887;
+      --accent: #927cff;
+      --accent-2: #5f8dff;
+      --good: #7ee2ad;
+      --warning: #ffd477;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(119, 87, 255, 0.16), transparent 31rem),
+        radial-gradient(circle at 88% 20%, rgba(55, 118, 255, 0.12), transparent 30rem),
+        linear-gradient(180deg, #090a0f 0%, var(--bg) 36%, #08090c 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, #000 0, transparent 75%);
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* NAV */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 0;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(7, 8, 11, .88), rgba(7, 8, 11, .55));
+      border-bottom: 1px solid rgba(255,255,255,.055);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-weight: 850;
+      font-size: 22px;
+      letter-spacing: -0.7px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--accent), #6647ff);
+      box-shadow: 0 8px 28px rgba(123, 92, 255, .28), inset 0 1px 0 rgba(255,255,255,.32);
+      font-size: 16px;
+    }
+
+    .brand span span { color: #9d8bff; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-link,
+    .nav-cta {
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 10px 13px;
+      color: #b8bdc9;
+      font-size: 14px;
+      font-weight: 650;
+      transition: .2s ease;
+    }
+
+    .nav-link:hover { color: white; background: rgba(255,255,255,.055); }
+
+    .nav-cta {
+      color: #0a0b0f;
+      background: white;
+      padding-inline: 15px;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,.12); }
+
+    /* HERO */
+    .hero {
+      padding: clamp(62px, 8vw, 110px) 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+      align-items: center;
+      gap: clamp(42px, 7vw, 86px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #c7c1f9;
+      background: rgba(146, 124, 255, .10);
+      border: 1px solid rgba(146,124,255,.22);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--good);
+      box-shadow: 0 0 0 5px rgba(126, 226, 173, .08);
+    }
+
+    h1 {
+      font-size: clamp(46px, 7.2vw, 88px);
+      line-height: .96;
+      letter-spacing: clamp(-4px, -0.45vw, -1.8px);
+      max-width: 780px;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(95deg, #c5baff, #8ca7ff 48%, #72d3d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 650px;
+      color: #aeb3bf;
+      font-size: clamp(16px, 1.7vw, 19px);
+      line-height: 1.72;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-weight: 750;
+      font-size: 14px;
+      cursor: pointer;
+      background: rgba(255,255,255,.045);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.075); }
+    .btn-primary { background: white; color: #090a0e; border-color: white; }
+    .btn-primary:hover { background: #efeff5; }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-130%) skewX(-18deg);
+      background: linear-gradient(90deg, transparent, rgba(146,124,255,.22), transparent);
+      animation: shine 5.6s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0%, 68% { transform: translateX(-130%) skewX(-18deg); }
+      86%, 100% { transform: translateX(130%) skewX(-18deg); }
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      margin-top: 34px;
+      color: var(--muted);
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: white;
+      font-size: 23px;
+      letter-spacing: -.6px;
+      margin-bottom: 2px;
+    }
+
+    .hero-stat span { font-size: 12px; text-transform: uppercase; letter-spacing: .9px; }
+
+    .featured-visual {
+      position: relative;
+      min-height: 470px;
+    }
+
+    .featured-card {
+      position: absolute;
+      inset: 18px 0 18px 25px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 32px;
+      background: #12141a;
+      box-shadow: var(--shadow);
+      transform: rotate(2.2deg);
+      transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .featured-card:hover { transform: rotate(.4deg) translateY(-5px); }
+
+    .featured-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,9,13,.97) 2%, rgba(8,9,13,.35) 52%, rgba(8,9,13,.06) 100%);
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-content {
+      position: absolute;
+      z-index: 2;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+    }
+
+    .featured-label {
+      color: #c9c2fb;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 9px;
+    }
+
+    .featured-title {
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 9px;
+    }
+
+    .featured-meta {
+      color: #bdc0c9;
+      font-size: 14px;
+    }
+
+    .floating-icon {
+      position: absolute;
+      z-index: 4;
+      width: 92px;
+      border-radius: 24px;
+      border: 5px solid #0c0e13;
+      box-shadow: 0 18px 44px rgba(0,0,0,.42);
+      left: -12px;
+      top: 0;
+      transform: rotate(-7deg);
+      animation: floaty 5s ease-in-out infinite;
+    }
+
+    @keyframes floaty {
+      0%,100% { transform: rotate(-7deg) translateY(0); }
+      50% { transform: rotate(-4deg) translateY(-8px); }
+    }
+
+    /* SECTION */
+    .section {
+      padding: 42px 0 92px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 25px;
+    }
+
+    .section-kicker {
+      color: #9c8df4;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 7px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -1.8px;
+      line-height: 1.05;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 580px;
+      line-height: 1.6;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 24px 0 24px;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      flex: 1 1 260px;
+      min-width: 0;
+      height: 46px;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      color: white;
+      outline: none;
+      padding: 0 15px;
+      transition: .2s ease;
+    }
+
+    .search:focus { border-color: rgba(146,124,255,.55); box-shadow: 0 0 0 4px rgba(146,124,255,.08); }
+    .search::placeholder { color: #666d7a; }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      color: #aeb3bf;
+      border-radius: 999px;
+      min-height: 40px;
+      padding: 0 13px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      color: white;
+      border-color: rgba(146,124,255,.38);
+      background: rgba(146,124,255,.12);
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .game-card {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 32px rgba(0,0,0,.14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform .28s cubic-bezier(.2,.8,.2,1), border-color .28s ease, box-shadow .28s ease;
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    .game-card.visible { opacity: 1; transform: translateY(0); }
+    .game-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--border-strong);
+      box-shadow: 0 24px 65px rgba(0,0,0,.28), 0 0 0 1px rgba(146,124,255,.06);
+    }
+
+    .game-cover {
+      position: relative;
+      aspect-ratio: 16 / 8.9;
+      overflow: hidden;
+      background: #101218;
+    }
+
+    .game-cover > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s cubic-bezier(.2,.8,.2,1), filter .3s ease;
+    }
+
+    .game-card:hover .game-cover > img { transform: scale(1.045); filter: saturate(1.08); }
+
+    .game-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,13,18,.8), transparent 55%);
+      pointer-events: none;
+    }
+
+    .game-icon {
+      position: absolute;
+      z-index: 2;
+      left: 18px;
+      bottom: -30px;
+      width: 74px;
+      height: 74px;
+      border-radius: 20px;
+      border: 4px solid #12141a;
+      background: #1a1d24;
+      object-fit: cover;
+      box-shadow: 0 10px 28px rgba(0,0,0,.34);
+    }
+
+    .status-pill {
+      position: absolute;
+      z-index: 3;
+      right: 12px;
+      top: 12px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(8,9,13,.74);
+      border: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(10px);
+      font-size: 11px;
+      font-weight: 800;
+      color: #d8dbe4;
+    }
+
+    .status-pill.pre { color: #c8bfff; border-color: rgba(146,124,255,.27); }
+
+    .game-body { padding: 42px 18px 18px; }
+
+    .game-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .game-title {
+      font-size: 19px;
+      line-height: 1.22;
+      letter-spacing: -.45px;
+      font-weight: 800;
+    }
+
+    .game-category {
+      color: #a899f7;
+      font-size: 12px;
+      font-weight: 750;
+      margin-top: 5px;
+    }
+
+    .rating {
+      white-space: nowrap;
+      color: #f5d170;
+      font-size: 13px;
+      font-weight: 800;
+      padding-top: 2px;
+    }
+
+    .game-description {
+      color: #9ea4b1;
+      line-height: 1.58;
+      font-size: 14px;
+      margin: 14px 0 15px;
+      min-height: 66px;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-bottom: 15px;
+    }
+
+    .meta {
+      min-width: 0;
+      padding: 9px 8px;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 11px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .meta-label {
+      color: #696f7c;
+      text-transform: uppercase;
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .8px;
+    }
+
+    .meta-value {
+      color: #d4d7df;
+      margin-top: 3px;
+      font-size: 11px;
+      font-weight: 720;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .card-actions .btn { min-height: 42px; padding-inline: 13px; border-radius: 11px; }
+
+    .empty {
+      display: none;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 20px;
+      padding: 46px 20px;
+      color: var(--muted);
+      grid-column: 1 / -1;
+    }
+
+    /* ABOUT */
+    .about-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 44px;
+      padding: clamp(28px, 5vw, 54px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(146,124,255,.09), rgba(255,255,255,.025) 45%, rgba(95,141,255,.055));
+      box-shadow: var(--shadow);
+    }
+
+    .about-card::before {
+      content: "4S";
+      position: absolute;
+      right: -22px;
+      bottom: -76px;
+      font-size: 250px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -24px;
+      color: rgba(255,255,255,.018);
+      pointer-events: none;
+    }
+
+    .about-number {
+      color: transparent;
+      background: linear-gradient(135deg, #f3efff, #9a88ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: clamp(78px, 10vw, 142px);
+      font-weight: 900;
+      line-height: .82;
+      letter-spacing: -8px;
+    }
+
+    .about-small { color: #7d8390; margin-top: 15px; font-size: 13px; text-transform: uppercase; font-weight: 800; letter-spacing: 1.1px; }
+    .about-title { font-size: clamp(28px, 4vw, 44px); letter-spacing: -1.5px; margin-bottom: 14px; }
+    .about-copy { color: #a9aeba; line-height: 1.75; max-width: 680px; }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 22px;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .modal.open { display: grid; }
+
+    .modal-panel {
+      width: min(900px, 100%);
+      max-height: min(760px, calc(100vh - 44px));
+      overflow: auto;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 26px;
+      background: #0f1117;
+      box-shadow: 0 30px 100px rgba(0,0,0,.58);
+      animation: pop .22s ease-out;
+    }
+
+    @keyframes pop { from { opacity: 0; transform: scale(.975) translateY(8px); } }
+
+    .modal-top {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 18px;
+      background: rgba(15,17,23,.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .modal-title { font-size: 18px; font-weight: 800; }
+    .close {
+      width: 38px; height: 38px;
+      display: grid; place-items: center;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      cursor: pointer;
+    }
+
+    .modal-content { padding: 18px; }
+
+    .shots {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .shot {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #171a20;
+    }
+
+    .modal-copy { color: #acb1bd; line-height: 1.72; margin: 18px 2px 20px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 30px 0 46px;
+      color: #747a88;
+      font-size: 13px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links { display: flex; gap: 15px; flex-wrap: wrap; }
+    .footer-links a { color: #9399a7; text-decoration: none; }
+    .footer-links a:hover { color: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 430px; max-width: 680px; width: 100%; margin-inline: auto; }
+      .featured-card { inset: 20px 0 10px 20px; }
+      .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-card { grid-template-columns: 1fr; gap: 28px; }
+      .about-number { font-size: 92px; }
+    }
+
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 26px, var(--max)); }
+      .nav-wrap { padding: 10px 0; }
+      .nav-link { display: none; }
+      .nav-cta { padding: 9px 12px; font-size: 12px; }
+      .brand { font-size: 19px; }
+      .brand-mark { width: 34px; border-radius: 10px; }
+
+      .hero { padding-top: 52px; }
+      h1 { font-size: clamp(43px, 15vw, 62px); letter-spacing: -2.8px; }
+      .hero-copy { font-size: 16px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+      .hero-stats { justify-content: space-between; gap: 16px; }
+      .hero-stat strong { font-size: 20px; }
+
+      .featured-visual { min-height: 330px; }
+      .featured-card { inset: 10px 0 5px 10px; border-radius: 24px; }
+      .floating-icon { width: 70px; border-radius: 19px; left: -2px; }
+      .featured-content { left: 20px; right: 20px; bottom: 20px; }
+
+      .section { padding-bottom: 68px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .games-grid { grid-template-columns: 1fr; }
+      .filters { width: 100%; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 3px; scrollbar-width: none; }
+      .filters::-webkit-scrollbar { display: none; }
+      .filter-btn { flex: 0 0 auto; }
+      .game-description { min-height: 0; }
+      .meta-row { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .shots { grid-template-columns: 1fr; }
+      .modal { padding: 10px; }
+      .modal-panel { max-height: calc(100vh - 20px); border-radius: 20px; }
+    }
+
+    @media (max-width: 390px) {
+      .hero-stats { gap: 14px; }
+      .hero-stat { flex: 1 1 90px; }
+      .meta-row { grid-template-columns: 1fr 1fr; }
+      .meta:last-child { grid-column: 1 / -1; }
+      .card-actions { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav class="shell">
+      <a class="brand" href="#top" aria-label="4SGamz home">
+        <span class="brand-mark">4S</span>
+        <span>4S<span>Gamz</span></span>
+      </a>
+
+      <div class="nav-links">
+        <a class="nav-link" href="#games">Games</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-cta" href="https://play.google.com/store/apps/dev?id=8055560724018696111" target="_blank" rel="noopener">Google Play ↗</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">Independent Android game studio</div>
+          <h1>Small studio.<br><span class="gradient-text">Big variety.</span></h1>
+          <p class="hero-copy">
+            Welcome to 4SGamz. We build Android games across simulation, action, casual and arcade — from realistic 2D trucking to chaotic physics action and relaxing management games.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#games">Explore the games ↓</a>
+            <a class="btn" href="https://play.google.com/store/apps/dev?id=8055560724018696111" target="_blank" rel="noopener">Open developer page ↗</a>
+          </div>
+
+          <div class="hero-stats" aria-label="Studio stats">
+            <div class="hero-stat"><strong>10</strong><span>Google Play titles</span></div>
+            <div class="hero-stat"><strong>50K+</strong><span>Flagship downloads</span></div>
+            <div class="hero-stat"><strong>Android</strong><span>Primary platform</span></div>
+          </div>
+        </div>
+
+        <div class="featured-visual" aria-label="Featured game Truck On Fire">
+          <img class="floating-icon" src="https://play-lh.googleusercontent.com/2W0LNLeL0tVBT6O4o_UFXWOK3_YAOprUtqRXO9fOZPYXwti6buzpwK-oHaLJf31Ea00DE1lwubszG7T9J2sBeg=w240-h480" alt="Truck On Fire icon" />
+          <a class="featured-card" href="https://play.google.com/store/apps/details?id=com.samirahmed.TruckOnFire2D" target="_blank" rel="noopener">
+            <img class="featured-image" src="https://play-lh.googleusercontent.com/JZXCUXkoQ28JqF-aRlME9NOj7kb5yAwWTiDQM4frRW4QYTu2au7QHkdLvBAiMCQV_xbDhAx7bZg85lCRmpNEsw=w526-h296" alt="Truck On Fire gameplay" />
+            <div class="featured-content">
+              <div class="featured-label">Featured • 50K+ downloads</div>
+              <h2 class="featured-title">Truck On Fire:<br>Truck Simulator</h2>
+              <div class="featured-meta">Simulation • Everyone • 4.2 ★</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="games">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Portfolio</div>
+            <h2 class="section-title">Games on Google Play</h2>
+            <p class="section-sub">Browse the current public 4SGamz catalog. Search, filter, preview screenshots and jump straight to each Google Play listing.</p>
+          </div>
+        </div>
+
+        <div class="tools">
+          <input id="search" class="search" type="search" autocomplete="off" placeholder="Search games…" aria-label="Search games" />
+          <div id="filters" class="filters" aria-label="Filter games"></div>
+        </div>
+
+        <div id="gamesGrid" class="games-grid"></div>
+        <div id="empty" class="empty">No games match that search.</div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="shell">
+        <div class="about-card">
+          <div>
+            <div class="about-number">4S</div>
+            <div class="about-small">Games • experiments • ideas</div>
+          </div>
+          <div>
+            <div class="section-kicker">About 4SGamz</div>
+            <h2 class="about-title">Built independently, one game at a time.</h2>
+            <p class="about-copy">
+              4SGamz publishes Android games across different genres, with a focus on distinctive mechanics, replayable systems and hands-on gameplay. This page is a lightweight home for the studio and also hosts the app-ads.txt file used by our Google Play apps.
+            </p>
+            <div class="hero-actions" style="margin-top:24px">
+              <a class="btn btn-primary" href="https://play.google.com/store/apps/dev?id=8055560724018696111" target="_blank" rel="noopener">View all on Google Play ↗</a>
+              <a class="btn" href="./app-ads.txt" target="_blank">app-ads.txt ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <div>© <span id="year"></span> 4SGamz. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="https://play.google.com/store/apps/dev?id=8055560724018696111" target="_blank" rel="noopener">Google Play</a>
+        <a href="./app-ads.txt" target="_blank">app-ads.txt</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <div class="modal-top">
+        <div id="modalTitle" class="modal-title">Game</div>
+        <button id="modalClose" class="close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-content">
+        <div id="modalShots" class="shots"></div>
+        <p id="modalCopy" class="modal-copy"></p>
+        <a id="modalPlay" class="btn btn-primary" href="#" target="_blank" rel="noopener">Open on Google Play ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <div style="padding:20px;text-align:center;color:#bbb">Please enable JavaScript to view the game catalog.</div>
+  </noscript>
+
+  <script>
+    const apps = [
+      {
+        title: "Truck On Fire: Truck Simulator",
+        category: "Simulation",
+        downloads: "50K+",
+        rating: "4.2 ★",
+        contentRating: "Everyone",
+        updated: "Jul 22, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.samirahmed.TruckOnFire2D",
+        icon: "https://play-lh.googleusercontent.com/2W0LNLeL0tVBT6O4o_UFXWOK3_YAOprUtqRXO9fOZPYXwti6buzpwK-oHaLJf31Ea00DE1lwubszG7T9J2sBeg=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/JZXCUXkoQ28JqF-aRlME9NOj7kb5yAwWTiDQM4frRW4QYTu2au7QHkdLvBAiMCQV_xbDhAx7bZg85lCRmpNEsw=w526-h296",
+          "https://play-lh.googleusercontent.com/ua5tPvmb3Xe84i0NOMS8NUrpGsIqx9NNK83IBM-hrYB4RhWmjmZri8tedumirpklCb10Si_AiyTMWoUkhYGRrg=w526-h296"
+        ],
+        description: "A detailed 2D truck simulator with realistic vehicle systems, upgrades, jobs, multiple maps and customizable trucks."
+      },
+      {
+        title: "My Mini Shop Simulator - Game",
+        category: "Simulation",
+        downloads: "1K+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "Aug 15, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.foursgamz.MyMiniShopSimulator",
+        icon: "https://play-lh.googleusercontent.com/NdRsb8tBB7MucJgtvf2ilRBQ5EvSvj3kw-59QCEspw_LyoKWwOdQNWMW2eoqX2xuuP8Vy2J-Vq6_mvwJyXMhMg=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/_fY_8JPzLPnwSnHJ65_EnKFGaCHDk6iKw7dtpqkxi85tnTt7UM0TwEK73PE81TbbcGqoB97hrfOeUbbwPzGk7g=w526-h296",
+          "https://play-lh.googleusercontent.com/5iMFvnJYVKA9pnM3BlK6o7TDxS5DILHaB3KiutBWQWb8NdxLemxTeEoIMYxZKIurlmHkCl6Z2QjzrTO4b5zK20k=w526-h296"
+        ],
+        description: "Run a 2D supermarket: order products, stock shelves, set prices, scan purchases, hire help and expand your shop."
+      },
+      {
+        title: "The Throw: Smash & Survive",
+        category: "Action",
+        downloads: "Pre-register",
+        rating: "",
+        contentRating: "Teen",
+        updated: "Aug 11, 2026",
+        status: "Pre-register",
+        url: "https://play.google.com/store/apps/details?id=com.foursgamz.TheThrow",
+        icon: "https://play-lh.googleusercontent.com/w8fstQHWfKuWCTPRVIS9MIocS54OCW2EJvSpHagbcKG74b_ZnM1zCD4QZ5eYY9Dz8LxsxECJieMhbBCJzvbyoUc=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/CFoP7lCla5kFYsWJolB1xQIuA8nO0T6RcVCTtd5H2rWDT8n3vh0LcC1udVeIBN58Wlme7t-R9e3XXRsE8yPR=w526-h296",
+          "https://play-lh.googleusercontent.com/lm83SNBfQlHuEWTpB-fmsUnpUGmT0SeO92TTcD43T0zJTxW2RkT40KsQKVWZI-ihcVPhJst4psq3Jpilqrezdw=w526-h296"
+        ],
+        description: "Throw yourself into enemies, dodge attacks, break environments and survive fast, chaotic 2D action."
+      },
+      {
+        title: "Truck On Flood 2D - Simulator",
+        category: "Simulation",
+        downloads: "10K+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "Mar 31, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.samirahmed.TruckOnFlood2D",
+        icon: "https://play-lh.googleusercontent.com/guRKTbwxXhHFFZK1YETfhIYjbqRmtsLpGrkHZ7JOgNtGygGjR3oXWjX1Sm1OMQKeYhDqbuCDDFKIwbD0eNbq-0I=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/2J_QAdZjjuxfZud3uHGNHtCQTyPI84jOnKPW6vEenoR0sGzmnYVxWhMDkFX7x4fu3GX-l6j0Rb-6V9GnE8rn=w526-h296",
+          "https://play-lh.googleusercontent.com/rDYn6qznd58OY2hitdh7pTM6StovhfzC_-lbdCaAHSvoTYPXaan5OkqgxxMHixbP-brkZRvMaQCI8C6h1dQWsQ=w526-h296"
+        ],
+        description: "Drive through flood zones, deliver supplies, rescue civilians and manage realistic truck systems in 2D."
+      },
+      {
+        title: "Shift & Drift - 3D Car Driving",
+        category: "Simulation",
+        downloads: "1K+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "Mar 31, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.foursgamz.shift.and.drift",
+        icon: "https://play-lh.googleusercontent.com/pQZp0SkVL1Wmn-skRHmHfrrc6SfIfUiCCkw0jeNj9bckj_5tZXLjvl9Vmn_kjapvZEA=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/GUE6CGgQXZ6BqDvrkRwzeQN1FKGB7_Jv246QhIMBrALUVSoI4wU7Ku55hOgIauPdkqg=w526-h296",
+          "https://play-lh.googleusercontent.com/xygB9FqiCkUxYURF4GSxCdiYuoyJqHt2l5ESBNqNcll6fPZCVfq5rgH9CdCQYuts9jY=w526-h296"
+        ],
+        description: "Race, drift, dodge obstacles, unlock cars and improve your driving across fast-paced 3D tracks."
+      },
+      {
+        title: "Ultimate Slicer 3D - Slice All",
+        category: "Casual",
+        downloads: "100+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "Apr 9, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.foursgamz.UltimateSlicer3D",
+        icon: "https://play-lh.googleusercontent.com/oB2NHOjY8dTNthnZVChEjogKqVOas3ckVzUHt-kQ-tsILVFphLcsEbOw9RPHvoLYqYrfYbHCf4DiHA_X1nQURjs=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/cGTs6PC9F5Af3j6fgWjT-qoRZHf3UoXCMkoUyC_S3SgqmZqUtCh_L3Mk6Z70QM4MpZ2MKjws1yQQIhXEotjZ=w526-h296",
+          "https://play-lh.googleusercontent.com/k3bqucKJ_6V3N2MtVnHHyu70BOxn7-oNXecMm4P-cLzZA59twxSzkCjDU5vazmy8FPY2etmXIbn97rL78YhB6w=w526-h296"
+        ],
+        description: "Slice fruit across multiple modes, unlock cosmetics, chase scores and enjoy fast, satisfying casual play."
+      },
+      {
+        title: "Reaching The Limit",
+        category: "Adventure",
+        downloads: "100+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "Apr 9, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.foursgamz.reachingthelimit",
+        icon: "https://play-lh.googleusercontent.com/7GQz6uQBKiRELP_Srr6Q5QY9ZPSsDmzJHae7xFbgbMsvrQno1LUV7XgGW6w3ODKptol9nAlM5rbnGZYR84EnUg=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/Zxpi1tlA8IvAVGdpfzQkzcZFMcvoQpv28EyEyp2zH3aVcu1tBdbg-vOlJREYnOGgE8EpE9KMWgKvKnubtdTRqMs=w526-h296",
+          "https://play-lh.googleusercontent.com/qsoUpxKrVtDzECsEBaxVbONbCSJaCwDUFcTkVDMeucTrr_LrTVfIKcJsRZG_8fuyOzP9zFuuJg-J0MxMiKRwQA=w526-h296"
+        ],
+        description: "Guide a fragile egg back up the mountain, overcome hazards, place checkpoints and unlock new skins."
+      },
+      {
+        title: "Unknown City",
+        category: "Arcade",
+        downloads: "100+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "Apr 2, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.samirahmed.UnknownCity",
+        icon: "https://play-lh.googleusercontent.com/pGS8Y73IlR0H1_UbRy5lHBA9J_-RLkZpOCLFdY9XARRouRumpS9yS1vZIPaxXKXC2db6LiIH54MOm1gtR0KnsQI=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/7tv8Xaokj9IQ_MRMM_u9uXXLRIXGFu47TBrIxHheDkZ1KacnBzDiGp41nSbtd1EygjP0akCiKsPY5IauKVZu-A=w526-h296",
+          "https://play-lh.googleusercontent.com/UhYEd1wdCqqOdNzZtV5K9-2wUQTEOVoMQRzn3PTTyN3TlJGS4H1qCpKV6XwB_0c9bGMmQHl0Ins71hNjnn9Jpw=w526-h296"
+        ],
+        description: "Protect a city from incoming missiles in a simple score-chasing arcade defense game."
+      },
+      {
+        title: "Cannon And Ball",
+        category: "Arcade",
+        downloads: "50+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "May 21, 2026",
+        status: "Available",
+        url: "https://play.google.com/store/apps/details?id=com.foursgamz.CannonAndBall",
+        icon: "https://play-lh.googleusercontent.com/Tyb3RsmRhyEqJGgpcHR-Wjk-otvK3cr8ymKB-LftQ_05r9zH3A-YJcwKRWdfYU9gLG1QTaLJ2oVgA8uMZ2CkmkU=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/Umy3vCqi6aupOK-0yeMuBnb-3f4NZGYgejsCvkCmhAzUXN_O6xFtc0qypl3r_J9xClvWs6s5_q66P0vpCrR4xw=w526-h296",
+          "https://play-lh.googleusercontent.com/wN75bRsjCyhHru26EZjJUmjP9hosQLe6IlPS-eR84uOWvlUxHZ5mmK3-MzXy2MbzE2ygfklyLlm36reSeNO6=w526-h296"
+        ],
+        description: "Fire a cannon while the number of balls keeps increasing, pushing the challenge higher and higher."
+      },
+      {
+        title: "Safe Box",
+        category: "Arcade",
+        downloads: "5+",
+        rating: "",
+        contentRating: "Everyone",
+        updated: "Apr 9, 2026",
+        status: "$0.49",
+        url: "https://play.google.com/store/apps/details?id=com.samirahmed.SafeBox",
+        icon: "https://play-lh.googleusercontent.com/97oVZXCGwyBcczply-LVG1u4SMeYHd6WhcvV0R2UPA2Bf3WopzeYKt_hbi9X7c0A98sale-z9OqHXiBzRr6w6g=w240-h480",
+        screenshots: [
+          "https://play-lh.googleusercontent.com/ljZ9wmPXx5VLOystK5FORYzgA3mHaKpK8dpea7FR-efgRSfnD-XxOTOzWxiWpprPNJdZmHgF-f6F-W42n4fXPZY=w526-h296",
+          "https://play-lh.googleusercontent.com/XFjiEWrdVTdp3kd8NsW9QTRrfC3SXsP0F_2wxfnpDrjPxUi_EbxWhOGf6bcYDR6_vpDwWuoEqRI-m-QKMjo_OA=w526-h296"
+        ],
+        description: "Swipe to keep your box safe from falling obstacles across a compact set of arcade challenges."
+      }
+    ];
+
+    const categories = ["All", ...new Set(apps.map(app => app.category))];
+    const grid = document.getElementById("gamesGrid");
+    const filters = document.getElementById("filters");
+    const search = document.getElementById("search");
+    const empty = document.getElementById("empty");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalShots = document.getElementById("modalShots");
+    const modalCopy = document.getElementById("modalCopy");
+    const modalPlay = document.getElementById("modalPlay");
+    const modalClose = document.getElementById("modalClose");
+
+    let activeCategory = "All";
+
+    function safeImage(img) {
+      img.onerror = () => {
+        img.onerror = null;
+        img.style.display = "none";
+        if (img.parentElement) img.parentElement.style.background = "linear-gradient(135deg,#1d2030,#31285d)";
+      };
+    }
+
+    function renderFilters() {
+      filters.innerHTML = categories.map(cat => `
+        <button class="filter-btn ${cat === activeCategory ? "active" : ""}" data-filter="${cat}">${cat}</button>
+      `).join("");
+
+      filters.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeCategory = btn.dataset.filter;
+          renderFilters();
+          renderApps();
+        });
+      });
+    }
+
+    function cardTemplate(app, index) {
+      const pre = app.status.toLowerCase().includes("pre");
+      return `
+        <article class="game-card" data-index="${index}">
+          <div class="game-cover">
+            <img src="${app.screenshots[0]}" alt="${app.title} screenshot" loading="lazy" />
+            <span class="status-pill ${pre ? "pre" : ""}">${app.status}</span>
+            <img class="game-icon" src="${app.icon}" alt="${app.title} icon" loading="lazy" />
+          </div>
+
+          <div class="game-body">
+            <div class="game-title-row">
+              <div>
+                <h3 class="game-title">${app.title}</h3>
+                <div class="game-category">${app.category}</div>
+              </div>
+              ${app.rating ? `<div class="rating">${app.rating}</div>` : ""}
+            </div>
+
+            <p class="game-description">${app.description}</p>
+
+            <div class="meta-row">
+              <div class="meta">
+                <div class="meta-label">Downloads</div>
+                <div class="meta-value">${app.downloads}</div>
+              </div>
+              <div class="meta">
+                <div class="meta-label">Rating</div>
+                <div class="meta-value">${app.contentRating}</div>
+              </div>
+              <div class="meta">
+                <div class="meta-label">Updated</div>
+                <div class="meta-value">${app.updated}</div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="btn btn-primary" href="${app.url}" target="_blank" rel="noopener">Google Play ↗</a>
+              <button class="btn details-btn" type="button" data-index="${index}" aria-label="Preview ${app.title}">Preview</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderApps() {
+      const query = search.value.trim().toLowerCase();
+      const filtered = apps
+        .map((app, index) => ({ app, index }))
+        .filter(({ app }) => {
+          const categoryMatch = activeCategory === "All" || app.category === activeCategory;
+          const searchMatch = !query || `${app.title} ${app.category} ${app.description}`.toLowerCase().includes(query);
+          return categoryMatch && searchMatch;
+        });
+
+      grid.innerHTML = filtered.map(({ app, index }) => cardTemplate(app, index)).join("");
+      empty.style.display = filtered.length ? "none" : "block";
+
+      grid.querySelectorAll("img").forEach(safeImage);
+      grid.querySelectorAll(".details-btn").forEach(btn => {
+        btn.addEventListener("click", () => openModal(apps[Number(btn.dataset.index)]));
+      });
+
+      requestAnimationFrame(() => {
+        grid.querySelectorAll(".game-card").forEach((card, i) => {
+          setTimeout(() => card.classList.add("visible"), Math.min(i * 55, 380));
+        });
+      });
+    }
+
+    function openModal(app) {
+      modalTitle.textContent = app.title;
+      modalShots.innerHTML = app.screenshots.map((src, i) => `<img class="shot" src="${src}" alt="${app.title} screenshot ${i + 1}" />`).join("");
+      modalShots.querySelectorAll("img").forEach(safeImage);
+      modalCopy.textContent = app.description;
+      modalPlay.href = app.url;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    search.addEventListener("input", renderApps);
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll("img").forEach(safeImage);
+
+    renderFilters();
+    renderApps();
+  </script>
+</body>
 </html>
+
+
