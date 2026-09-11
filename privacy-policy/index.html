@@ -1,1 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description" content="4SGamz Privacy Policy">
+    <meta name="robots" content="index,follow">
+
+    <title>Privacy Policy | 4SGamz</title>
+
+    <style>
+        :root {
+            --bg: #07080b;
+            --bg2: #0b0d12;
+            --panel: #111319;
+            --panel2: #171a22;
+
+            --text: #f6f7fb;
+            --muted: #b0b4bf;
+            --muted2: #888e9c;
+
+            --accent: #927cff;
+            --accent2: #5f8dff;
+
+            --border: rgba(255, 255, 255, 0.09);
+            --borderStrong: rgba(146, 124, 255, 0.30);
+
+            --maxWidth: 900px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            color-scheme: dark;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            color: var(--text);
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 15% 8%,
+                    rgba(146, 124, 255, 0.15),
+                    transparent 30rem
+                ),
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(95, 141, 255, 0.10),
+                    transparent 30rem
+                ),
+                linear-gradient(
+                    180deg,
+                    #090a0f 0%,
+                    var(--bg) 40%,
+                    #08090c 100%
+                );
+
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+            z-index: -1;
+
+            opacity: 0.16;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 42px 42px;
+        }
+
+        a {
+            color: #b9adff;
+            text-decoration: none;
+
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .page {
+            width: min(
+                var(--maxWidth),
+                calc(100% - 34px)
+            );
+
+            margin: 0 auto;
+            padding: 58px 0 90px;
+        }
+
+        .policy {
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                clamp(24px, 5vw, 54px);
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(146, 124, 255, 0.06),
+                    rgba(17, 19, 25, 0.97) 25%,
+                    rgba(12, 14, 19, 0.98)
+                );
+
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, 0.35);
+        }
+
+        .policy::before {
+            content: "";
+
+            position: absolute;
+
+            width: 460px;
+            height: 460px;
+
+            right: -220px;
+            top: -220px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(146, 124, 255, 0.15),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+        }
+
+        h1,
+        h2,
+        h3 {
+            position: relative;
+
+            margin-top: 0;
+
+            color: var(--text);
+
+            line-height: 1.2;
+        }
+
+        h1 {
+            margin-bottom: 14px;
+
+            font-size:
+                clamp(34px, 7vw, 56px);
+
+            letter-spacing: -1.8px;
+        }
+
+        h1 + h1 {
+            margin-top: 12px;
+        }
+
+        h2 {
+            margin-top: 48px;
+            margin-bottom: 15px;
+
+            padding-bottom: 11px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            font-size:
+                clamp(22px, 4vw, 29px);
+
+            letter-spacing: -0.7px;
+        }
+
+        h2::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 8px;
+            height: 8px;
+
+            margin-right: 11px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+
+            box-shadow:
+                0 0 0 5px
+                rgba(146, 124, 255, 0.08);
+
+            vertical-align: middle;
+        }
+
+        h3 {
+            margin-top: 32px;
+            margin-bottom: 12px;
+
+            font-size: 19px;
+        }
+
+        p {
+            margin: 13px 0;
+
+            color: var(--muted);
+        }
+
+        strong {
+            color: #e9eaf0;
+            font-weight: 650;
+        }
+
+        ul {
+            margin: 16px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+            padding-left: 5px;
+
+            color: var(--muted);
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        .updated {
+            display: inline-block;
+
+            margin: 5px 0 16px;
+
+            padding: 8px 12px;
+
+            border:
+                1px solid rgba(146,124,255,.20);
+
+            border-radius: 999px;
+
+            color: #cbc4f8;
+
+            background:
+                rgba(146,124,255,.08);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .intro {
+            margin-top: 26px;
+
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.025);
+        }
+
+        .contact-box {
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border:
+                1px solid var(--borderStrong);
+
+            border-radius: 18px;
+
+            background:
+                rgba(146,124,255,.055);
+        }
+
+        .contact-box a {
+            display: block;
+
+            width: fit-content;
+
+            margin-top: 7px;
+
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+
+            .page {
+                width:
+                    min(
+                        100% - 20px,
+                        var(--maxWidth)
+                    );
+
+                padding:
+                    18px 0 50px;
+            }
+
+            .policy {
+                border-radius: 20px;
+            }
+
+            h2 {
+                margin-top: 38px;
+            }
+
+            .intro,
+            .contact-box {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="page">
+
+<article class="policy">
+
+<h1>Privacy Policy</h1>
+
+<h1>Privacy Policy</h1>
+
+<div class="updated">
+    Last Updated: 29 August 2026
+</div>
+
+<div class="intro">
+
+<p><strong>This Service is provided by 4SGamz.</strong></p>
+
+<p><strong>This Privacy Policy explains how we collect, use, and protect information when you use our games, applications, or related services. By using our Service, you agree to the collection and use of information in accordance with this Privacy Policy.</strong></p>
+
+<p><strong>The information we collect is used to provide, maintain, analyze, and improve the Service. We do not sell your personal information.</strong></p>
+
+</div>
+
+
+<h2>Information Collection and Use</h2>
+
+<p><strong>For a better experience and to improve the Service, we may collect certain information directly or through third-party services used in the app.</strong></p>
+
+<p><strong>The app may collect or process information such as:</strong></p>
+
+<ul>
+    <li><strong>App usage and gameplay activity</strong></li>
+    <li><strong>In-app events and interactions</strong></li>
+    <li><strong>Device and app information</strong></li>
+    <li><strong>App version, operating system version, and device type</strong></li>
+    <li><strong>Approximate location information, such as country or region, when provided by analytics services</strong></li>
+    <li><strong>Device identifiers or app-instance identifiers used for analytics, ads, crash reporting, or service improvement</strong></li>
+    <li><strong>Crash logs, diagnostics, and performance data</strong></li>
+    <li><strong>Purchase-related information handled by Google Play, if you make an in-app purchase</strong></li>
+</ul>
+
+<p><strong>We use this information to:</strong></p>
+
+<ul>
+    <li><strong>Improve gameplay and balance</strong></li>
+    <li><strong>Understand how players use the game</strong></li>
+    <li><strong>Find and fix bugs or crashes</strong></li>
+    <li><strong>Improve performance and stability</strong></li>
+    <li><strong>Measure game features and updates</strong></li>
+    <li><strong>Provide ads, rewards, or purchases where applicable</strong></li>
+    <li><strong>Prevent abuse, fraud, or technical issues</strong></li>
+</ul>
+
+<p><strong>We do not knowingly collect sensitive personal information such as your full name, home address, phone number, or private personal messages through the app.</strong></p>
+
+
+<h2>Third-Party Services</h2>
+
+<p><strong>The app uses third-party services that may collect information used to identify you or your device. These services have their own privacy policies explaining how they collect and use data.</strong></p>
+
+<p><strong>Third-party services used by the app may include:</strong></p>
+
+<ul>
+    <li><strong>Google Play Services</strong></li>
+    <li><strong>Google Play Games Services</strong></li>
+    <li><strong>Google Play Billing</strong></li>
+    <li><strong>Firebase Analytics</strong></li>
+    <li><strong>Google AdMob or other advertising services, if ads are included in the app</strong></li>
+</ul>
+
+<p><strong>You can review their privacy policies here:</strong></p>
+
+<ul>
+    <li>
+        <strong>Google Privacy Policy:</strong>
+        <a href="https://policies.google.com/privacy"
+           target="_blank"
+           rel="noopener">
+            <strong>https://policies.google.com/privacy</strong>
+        </a>
+    </li>
+
+    <li>
+        <strong>Google Play Services:</strong>
+        <a href="https://policies.google.com/privacy"
+           target="_blank"
+           rel="noopener">
+            <strong>https://policies.google.com/privacy</strong>
+        </a>
+    </li>
+
+    <li>
+        <strong>Firebase Privacy and Security:</strong>
+        <a href="https://firebase.google.com/support/privacy"
+           target="_blank"
+           rel="noopener">
+            <strong>https://firebase.google.com/support/privacy</strong>
+        </a>
+    </li>
+
+    <li>
+        <strong>Google AdMob:</strong>
+        <a href="https://support.google.com/admob/answer/6128543"
+           target="_blank"
+           rel="noopener">
+            <strong>https://support.google.com/admob/answer/6128543</strong>
+        </a>
+    </li>
+</ul>
+
+
+<h2>Firebase Analytics</h2>
+
+<p><strong>We use Firebase Analytics to understand how players use the game and to improve the Service. Firebase Analytics may collect app interaction data, app events, device information, app-instance identifiers, and general usage statistics.</strong></p>
+
+<p><strong>This information helps us understand things such as which features are used, how players progress, how updates perform, and where bugs or problems may happen.</strong></p>
+
+<p><strong>We do not use Firebase Analytics to personally identify individual players.</strong></p>
+
+
+<h2>Advertising and Rewarded Ads</h2>
+
+<p><strong>The Service may show advertisements. Some ads may be shown during gameplay, while others may be optional rewarded ads that players can choose to watch in exchange for in-game rewards.</strong></p>
+
+<p><strong>Advertising services may collect or use information such as device identifiers, ad identifiers, app activity, approximate location, and interaction data to show ads, measure ad performance, prevent fraud, and improve ad quality.</strong></p>
+
+<p><strong>If the app includes a “Remove Ads” purchase, it removes the pop-up ads that appear while playing the game. Optional rewarded ads may still be available if they provide extra rewards, unless stated otherwise inside the app.</strong></p>
+
+
+<h2>In-App Purchases</h2>
+
+<p><strong>The Service may offer in-app purchases. Payments and purchase processing are handled by Google Play. We do not collect or store your payment card details.</strong></p>
+
+<p><strong>We may receive limited purchase-related information from Google Play, such as whether a purchase was successful, so the app can unlock the purchased item or feature.</strong></p>
+
+
+<h2>Log Data</h2>
+
+<p><strong>When you use our Service, especially in the case of an error, crash, or technical issue, we may collect data and information through third-party tools. This may include information such as your device IP address, device name, operating system version, app configuration, app version, the time and date of use, and other diagnostic statistics.</strong></p>
+
+<p><strong>This information is used to identify bugs, fix crashes, and improve the stability of the Service.</strong></p>
+
+
+<h2>Cookies and Similar Technologies</h2>
+
+<p><strong>The Service does not use cookies directly in the same way websites do. However, third-party services used in the app may use cookies, identifiers, or similar technologies to collect information and improve their services.</strong></p>
+
+<p><strong>You may be able to control certain ad personalization or privacy settings through your device settings, Google settings, or Google Play settings.</strong></p>
+
+
+<h2>Service Providers</h2>
+
+<p><strong>We may use third-party companies and services to:</strong></p>
+
+<ul>
+    <li><strong>Provide the Service</strong></li>
+    <li><strong>Analyze how the Service is used</strong></li>
+    <li><strong>Show advertisements</strong></li>
+    <li><strong>Process in-app purchases</strong></li>
+    <li><strong>Monitor crashes and performance</strong></li>
+    <li><strong>Improve the Service</strong></li>
+</ul>
+
+<p><strong>These third parties may have access to certain information only to perform tasks on our behalf or provide their own services. They are responsible for handling information according to their own privacy policies.</strong></p>
+
+
+<h2>Data Retention</h2>
+
+<p><strong>We keep information only for as long as necessary for the purposes described in this Privacy Policy, unless a longer retention period is required or allowed by law.</strong></p>
+
+<p><strong>Third-party services may retain information according to their own privacy policies and retention rules.</strong></p>
+
+
+<h2>Security</h2>
+
+<p><strong>We value your trust and work to use commercially reasonable methods to protect your information. However, no method of transmission over the internet or method of electronic storage is 100% secure. Therefore, we cannot guarantee absolute security.</strong></p>
+
+
+<h2>Links to Other Sites</h2>
+
+<p><strong>The Service may contain links to external websites or services. These links may include our own websites, support pages, social media pages, app store pages, promotional pages, or other links used to provide information, support, or marketing for our games and products.</strong></p>
+
+<p><strong>The Service may also contain links or content provided by third-party services, such as ads or external service providers. If you click a third-party link, you will be directed to that site or service.</strong></p>
+
+<p><strong>Please note that third-party websites and services are not operated or controlled by 4SGamz. We strongly advise you to review the privacy policies of any external websites or services you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of third-party sites or services.</strong></p>
+
+
+<h2>Children and Teen Users</h2>
+
+<p><strong>Some of our games, applications, educational content, or other Services may be designed for or suitable for children, including children under the age of 13. Other Services may be intended for a general or mixed-age audience.</strong></p>
+
+<p><strong>Where appropriate, a Service may display a neutral age or age-range selection screen. We may use the selected age range to apply appropriate privacy, advertising, analytics, and content settings. We do not use a child's age selection for behavioral advertising or profiling.</strong></p>
+
+
+<h3>Users Under 13</h3>
+
+<p><strong>When we know that a user is under 13, we take additional steps to limit data collection and advertising.</strong></p>
+
+<p><strong>We do not knowingly ask children under 13 to provide information such as their full name, home address, personal email address, telephone number, or private messages through our games or applications.</strong></p>
+
+<p><strong>Limited technical information may still be processed when necessary to operate the Service, maintain security, prevent fraud, provide game functionality, diagnose crashes, or comply with applicable law and platform requirements. Any such processing is limited according to the requirements that apply to child users.</strong></p>
+
+<p><strong>Where advertising is available, users identified as children are provided with age-appropriate advertising settings. Personalized, interest-based, and remarketing advertising is disabled for those users where required. We configure supported advertising services to request child-directed or age-restricted treatment and use advertising SDKs and services permitted for child-directed applications where required.</strong></p>
+
+<p><strong>We also restrict the transmission or use of advertising identifiers and other persistent device identifiers for child users where required by applicable law or platform policies.</strong></p>
+
+
+<h3>Users Aged 13 to 17</h3>
+
+<p><strong>Teen users may also receive additional privacy protections depending on their country or region, applicable law, platform requirements, and the Service being used.</strong></p>
+
+<p><strong>We do not knowingly require minors to provide unnecessary personal information in order to use basic game or educational functionality.</strong></p>
+
+
+<h3>Analytics for Children</h3>
+
+<p><strong>Some Services use analytics and diagnostic tools to understand performance, crashes, gameplay, and feature usage.</strong></p>
+
+<p><strong>For users identified as children, analytics services may be disabled, restricted, or configured to limit data collection and advertising-related processing where required.</strong></p>
+
+<p><strong>We do not use analytics information from children for personalized advertising where such use is prohibited.</strong></p>
+
+
+<h3>Advertising to Children:</h3>
+
+<p><strong>Some Services may contain advertisements or optional rewarded advertisements.</strong></p>
+
+<p><strong>When a user is identified as a child, we configure supported advertising providers to use child-appropriate advertising treatment. This may include showing non-personalized advertisements, restricting ad content, disabling interest-based advertising and remarketing, and limiting the use of advertising identifiers.</strong></p>
+
+<p><strong>Rewarded advertisements may allow a user to voluntarily watch an advertisement in exchange for an in-game reward. Ads shown to child users are subject to additional age-appropriate advertising restrictions.</strong></p>
+
+
+<h3>Parents and Guardians:</h3>
+
+<p><strong>If you are a parent or guardian and believe that your child has provided personal information through one of our Services, or if you have questions about how your child's information is handled, you may contact us using the contact information provided in this Privacy Policy.</strong></p>
+
+<p><strong>Where required by applicable law, we will take reasonable steps to review, delete, restrict, or otherwise address information associated with a child.</strong></p>
+
+<p><strong>We encourage parents and guardians to supervise their children's use of apps, games, online services, advertisements, and in-app purchases.</strong></p>
+
+
+<h2>Your Choices</h2>
+
+<p><strong>Depending on your device and region, you may be able to control certain data collection or advertising preferences through:</strong></p>
+
+<ul>
+    <li><strong>Android device settings</strong></li>
+    <li><strong>Google settings</strong></li>
+    <li><strong>Google Play settings</strong></li>
+    <li><strong>Ad personalization settings</strong></li>
+    <li><strong>App permissions</strong></li>
+</ul>
+
+<p><strong>You may also contact us if you have questions about your data or this Privacy Policy.</strong></p>
+
+
+<h2>Changes to This Privacy Policy</h2>
+
+<p><strong>We may update this Privacy Policy from time to time. We advise you to review this page periodically for any changes.</strong></p>
+
+<p><strong>Any changes will be posted on this page. The updated Privacy Policy will be effective when it is posted.</strong></p>
+
+
+<h2>Contact Us</h2>
+
+<div class="contact-box">
+
+<p><strong>If you have any questions or suggestions about this Privacy Policy, you can contact us at:</strong></p>
+
+<a href="mailto:sayed.ahmed6662@gmail.com">
+    <strong>sayed.ahmed6662@gmail.com</strong>
+</a>
+
+<a href="mailto:samir.oreo1@gmail.com">
+    <strong>samir.oreo1@gmail.com</strong>
+</a>
+
+</div>
+
+</article>
+
+</main>
+
+</body>
+</html>
